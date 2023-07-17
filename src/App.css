@@ -1,0 +1,130 @@
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Remove default margin */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+
+/* Set core body defaults */
+body {
+  min-height: 100vh;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+}
+
+/* Make images easier to work with */
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+:root {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  display: flex;
+}
+
+.app {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  border: 3px solid red;
+  min-width: 100vw;
+  left: 0;
+  top: 0;
+  /* height: 100vh; */
+  width: 100vw;
+}
+header {
+  border: 3px solid red;
+  height: fit-content;
+  align-self: center;
+  width: inherit;
+}
+main {
+  border: 3px solid hotpink;
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+  padding: 0.5em 1em;
+  width: inherit;
+}
+nav {
+  border: 3px solid green;
+  height: fit-content;
+  display: flex;
+  justify-content: space-between;
+}
+
+nav a {
+  margin: 0.25em 1em;
+  border: 3px solid lightgreen;
+}
+
+main section {
+  border: 3px solid orange;
+  flex-grow: 1;
+}
+
+.article-card {
+  border: 3px solid blue;
+  padding: 0.25em 1em;
+  margin: 0.5em 0em;
+  display: flex;
+  flex-direction: column;
+}
+.article-card div {
+  display: flex;
+  justify-content: space-between;
+}
+
+.article-card h3 {
+  align-self: center;
+}
+.article-card div p {
+  margin: 0.2em 1em;
+}
+
+.article-card img {
+  align-self: center;
+  width: 4em;
+  height: 4em;
+}
