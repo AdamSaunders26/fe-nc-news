@@ -2,8 +2,6 @@ import ArticleCard from "./ArticleCard";
 import Skeleton from "@mui/material/Skeleton";
 
 export default function ArticlesList({ loading, allArticles }) {
-  console.log(loading);
-
   return (
     <section>
       {loading ? (

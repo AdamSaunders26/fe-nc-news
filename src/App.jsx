@@ -18,7 +18,7 @@ function App() {
     });
   }, []);
   return (
-    <body>
+    <div className="app">
       <Header />
       <main>
         <Navbar />
@@ -30,7 +30,7 @@ function App() {
           />
         </Routes>
       </main>
-    </body>
+    </div>
   );
 }
 
