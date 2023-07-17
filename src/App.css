@@ -99,20 +99,32 @@ nav a {
   border: 3px solid lightgreen;
 }
 
-main .page-section {
+main section {
   border: 3px solid orange;
   flex-grow: 1;
 }
 
-.article-overview {
+.article-card {
   border: 3px solid blue;
   padding: 0.25em 1em;
-  margin: .5em 0em;
+  margin: 0.5em 0em;
+  display: flex;
+  flex-direction: column;
 }
-.article-overview .article-overview-details {
+.article-card div {
   display: flex;
   justify-content: space-between;
 }
-.article-overview .article-overview-details p {
+
+.article-card h3 {
+  align-self: center;
+}
+.article-card div p {
   margin: 0.2em 1em;
+}
+
+.article-card img {
+  align-self: center;
+  width: 4em;
+  height: 4em;
 }

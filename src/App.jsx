@@ -9,10 +9,12 @@ import { getArticles } from "./utils/getFunctions";
 
 function App() {
   const [allArticles, setAllArticles] = useState([]);
+  const [loading, setLoading] = useState(true)
 
   useEffect(() => {
     getArticles().then((articles) => {
       setAllArticles(articles);
+      setLoading(false)
     });
   }, []);
   return (
@@ -24,7 +26,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route
             path="/articles"
-            element={<ArticlesList allArticles={allArticles} />}
+            element={<ArticlesList loading={loading} allArticles={allArticles} />}
           />
         </Routes>
       </main>
