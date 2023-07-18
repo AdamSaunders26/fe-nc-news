@@ -173,12 +173,16 @@ main section {
   padding: 0;
   /* border: 3px solid brown; */
 }
+/* .no-comments {
+  flex-grow: 1;
+} */
 .comment-list a {
   align-self: center;
 }
 .comment-list {
   display: flex;
   flex-direction: column;
+ 
 }
 
 @media only screen and (min-width: 850px) {
