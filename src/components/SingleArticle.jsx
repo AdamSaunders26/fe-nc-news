@@ -16,19 +16,19 @@ export default function SingleArticle() {
   useEffect(() => {
     getSingleArticle(article_id).then((article) => {
       setCurrentArticle(article);
-      setLoading((loading) => {
-        const newLoading = [...loading];
-        newLoading[0] = false;
-        return newLoading;
-      });
+      // setLoading((loading) => {
+      //   const newLoading = [...loading];
+      //   newLoading[0] = false;
+      //   return newLoading;
+      // });
     });
     getComments(article_id).then((comments) => {
       setCurrentComments(comments);
-      setLoading((loading) => {
-        const newLoading = [...loading];
-        newLoading[1] = false;
-        return newLoading;
-      });
+      // setLoading((loading) => {
+      //   const newLoading = [...loading];
+      //   newLoading[1] = false;
+      //   return newLoading;
+      // });
     });
   }, []);
 
