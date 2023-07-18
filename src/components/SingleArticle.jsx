@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { getComments, getSingleArticle } from "../utils/getFunctions";
+import { getComments, getSingleArticle } from "../utils/axiosFunctions";
 import ArticleDetails from "./ArticleDetails";
 import CommentsList from "./CommentsList";
 import Skeleton from "@mui/material/Skeleton";
