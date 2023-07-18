@@ -81,6 +81,12 @@ select {
   width: 100%;
   margin: 0;
 }
+a {
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline
+}
 header {
   border: 3px solid red;
   height: fit-content;
