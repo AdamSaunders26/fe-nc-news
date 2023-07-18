@@ -31,12 +31,7 @@ function App() {
               <ArticlesList loading={loading} allArticles={allArticles} />
             }
           />
-          <Route
-            path="/articles/:article_id"
-            element={
-              <SingleArticle />
-            }
-          />
+          <Route path="/articles/:article_id" element={<SingleArticle />} />
         </Routes>
       </main>
     </div>

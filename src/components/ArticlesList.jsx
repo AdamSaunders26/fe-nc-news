@@ -1,16 +1,13 @@
 import ArticleCard from "./ArticleCard";
 import Skeleton from "@mui/material/Skeleton";
 import { Link } from "react-router-dom";
+import { ArticleOverviewSkeleton } from "../utils/loadingSkeletons";
 
 export default function ArticlesList({ loading, allArticles }) {
   return (
     <section>
       {loading ? (
-        <div>
-          <Skeleton animation="wave" />
-          <Skeleton animation="wave" variant="rectangular" height={100} />
-          <Skeleton animation="wave" variant="text" />
-        </div>
+       <ArticleOverviewSkeleton />
       ) : (
         allArticles.map((article) => {
           return (
