@@ -58,8 +58,14 @@ select {
 }
 
 :root {
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-family: Montserrat, sans-serif;
+  /* font-family: Verdana, Geneva, Tahoma, sans-serif; */
   display: flex;
+  --primary-accent: #48a9a6;
+  --secondary-accent: #ba274a;
+  --tertiary-accent: #e4e9b2;
+  --primary-background: #586ba4;
+  --secondary-background: #0d1821;
 }
 
 .app {
@@ -70,7 +76,6 @@ select {
   min-width: 100vw;
   left: 0;
   top: 0;
-  /* height: 100vh; */
   width: 100vw;
 }
 header {
@@ -78,6 +83,8 @@ header {
   height: fit-content;
   align-self: center;
   width: inherit;
+  color: var(--primary);
+  font-style: ;
 }
 main {
   border: 3px solid hotpink;
