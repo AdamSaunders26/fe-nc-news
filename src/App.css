@@ -136,6 +136,17 @@ main section {
   width: 4.5em;
   height: 3em;
 }
+.single-article{
+  display:flex;
+  flex-direction: column;
+}
+.skeleton {
+    width: 100%;
+}
+.comment-skeleton {
+    width: 50%;
+    align-self: center;
+}
 .article-details {
   border: 3px solid blue;
   display: flex;
@@ -182,7 +193,6 @@ main section {
 .comment-list {
   display: flex;
   flex-direction: column;
- 
 }
 
 @media only screen and (min-width: 850px) {
