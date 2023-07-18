@@ -136,10 +136,22 @@ main section {
   width: 4.5em;
   height: 3em;
 }
+.single-article {
+  display: flex;
+  flex-direction: column;
+}
+.skeleton {
+  width: 100%;
+}
+.comment-skeleton {
+  width: 50%;
+  align-self: center;
+}
 .article-details {
   border: 3px solid blue;
   display: flex;
   flex-direction: column;
+  width: 100%;
 }
 .article-details * {
   padding: 0em 0.5em;
@@ -148,7 +160,9 @@ main section {
 .article-details div {
   display: flex;
   justify-content: space-between;
+  /* border: 3px solid green */
 }
+
 .article-details img {
   max-width: 34em;
   max-height: 51em;
@@ -157,7 +171,25 @@ main section {
   margin: 0.5em 1em;
 }
 .article-details p {
-  margin: 0.5em 0.5em;
+  margin: 0.5em 00.5em;
+}
+.article-votes {
+  display: flex;
+  justify-content: flex-start;
+}
+.article-votes * {
+  padding: 0;
+  margin: 0;
+  /* border: 3px solid hotpink; */
+  align-self: center;
+}
+.article-votes button {
+  margin: 0em 0.15em;
+  display: flex;
+  font-size: 1.5em;
+  border-radius: 100vw;
+  border: 0;
+  background: transparent;
 }
 .comment-card {
   border: 3px solid hotpink;
@@ -182,7 +214,23 @@ main section {
 .comment-list {
   display: flex;
   flex-direction: column;
- 
+}
+.article-votes button:hover {
+  cursor: pointer;
+}
+.article-votes .downvote:active {
+  color: blue;
+}
+.article-votes .upvote:active {
+  color: red;
+}
+.article-votes .upvote-clicked {
+  background: red;
+  color: black;
+}
+.article-votes .downvote-clicked {
+  background: blue;
+  color: black;
 }
 
 @media only screen and (min-width: 850px) {

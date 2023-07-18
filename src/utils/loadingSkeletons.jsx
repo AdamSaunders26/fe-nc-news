@@ -2,7 +2,7 @@ import Skeleton from "@mui/material/Skeleton";
 
 export function ArticleOverviewSkeleton() {
   return (
-    <div>
+    <div className="skeleton">
       <div>
         <Skeleton height={100} />
         <Skeleton />
@@ -24,7 +24,7 @@ export function ArticleOverviewSkeleton() {
 
 export function ArticleSkeleton() {
   return (
-    <div>
+    <div className="skeleton">
       <Skeleton />
       <Skeleton />
       <Skeleton height={300} />
@@ -35,7 +35,7 @@ export function ArticleSkeleton() {
 
 export function CommentSkeleton() {
   return (
-    <div>
+    <div className="comment-skeleton">
       <div>
         <Skeleton height={100} />
         <Skeleton />
