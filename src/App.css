@@ -66,6 +66,8 @@ select {
   --tertiary-accent: #e4e9b2;
   --primary-background: #586ba4;
   --secondary-background: #0d1821;
+  /* width: 100vw;
+  margin: 0; */
 }
 
 .app {
@@ -73,10 +75,11 @@ select {
   flex-direction: column;
   justify-content: flex-start;
   border: 3px solid red;
-  min-width: 100vw;
-  left: 0;
+  /* min-width: 100%; */
+  /* left: 0; */
   top: 0;
-  width: 100vw;
+  width: 100%;
+  margin: 0;
 }
 header {
   border: 3px solid red;
@@ -122,31 +125,37 @@ main section {
   display: flex;
   justify-content: space-between;
 }
-
 .article-card h3 {
   align-self: center;
 }
 .article-card div p {
   margin: 0.2em 1em;
 }
-
 .article-card img {
   align-self: center;
   width: 4.5em;
   height: 3em;
 }
-
+.single-article{
+  display:flex;
+  flex-direction: column;
+}
+.skeleton {
+    width: 100%;
+}
+.comment-skeleton {
+    width: 50%;
+    align-self: center;
+}
 .article-details {
   border: 3px solid blue;
   display: flex;
   flex-direction: column;
 }
-
 .article-details * {
   padding: 0em 0.5em;
   /* border: 3px solid red */
 }
-
 .article-details div {
   display: flex;
   justify-content: space-between;
@@ -160,9 +169,8 @@ main section {
   align-self: center;
   margin: 0.5em 1em;
 }
-
 .article-details p {
-  margin: 0.5em 0.5em;
+  margin: 0.5em 00.5em;
 }
 .article-votes {
   display: flex;
@@ -178,6 +186,46 @@ main section {
   margin: 0em 0.15em;
   display: flex;
   font-size: 1.5em;
+}
+.comment-card {
+  border: 3px solid hotpink;
+  display: flex;
+  flex-direction: column;
+}
+.comment-card * {
+  padding: 0.5em 1em;
+}
+.comment-card div {
+  display: flex;
+  justify-content: space-between;
+  padding: 0;
+  /* border: 3px solid brown; */
+}
+/* .no-comments {
+  flex-grow: 1;
+} */
+.comment-list a {
+  align-self: center;
+}
+.comment-list {
+  display: flex;
+  flex-direction: column;
+}
+
+@media only screen and (min-width: 850px) {
+  .single-article {
+    display: flex;
+    flex-direction: row;
+  }
+  .comment-list {
+    max-width: 30vw;
+    max-height: 100vh;
+    overflow: auto;
+    font-size: 0.8em;
+  }
+  .comment-list a {
+    display: none;
+  };
   border-radius: 100vw;
   
 }
