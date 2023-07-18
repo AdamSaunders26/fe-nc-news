@@ -122,45 +122,74 @@ main section {
   display: flex;
   justify-content: space-between;
 }
-
 .article-card h3 {
   align-self: center;
 }
 .article-card div p {
   margin: 0.2em 1em;
 }
-
 .article-card img {
   align-self: center;
   width: 4.5em;
   height: 3em;
 }
-
 .article-details {
   border: 3px solid blue;
   display: flex;
   flex-direction: column;
-  
 }
-
 .article-details * {
   padding: 0em 0.5em;
   /* border: 3px solid red */
 }
-
 .article-details div {
   display: flex;
   justify-content: space-between;
-  }
-
+}
 .article-details img {
   max-width: 34em;
   max-height: 51em;
   width: 100%;
   align-self: center;
-  margin: 0.5em 1em
+  margin: 0.5em 1em;
+}
+.article-details p {
+  margin: 0.5em 0.5em;
+}
+.comment-card {
+  border: 3px solid hotpink;
+  display: flex;
+  flex-direction: column;
+}
+.comment-card * {
+  padding: 0.5em 1em;
+}
+.comment-card div {
+  display: flex;
+  justify-content: space-between;
+  padding: 0;
+  /* border: 3px solid brown; */
+}
+.comment-list a {
+  align-self: center;
+}
+.comment-list {
+  display: flex;
+  flex-direction: column;
 }
 
-.article-details p {
-  margin: 0.5em .5em
+@media only screen and (min-width: 850px) {
+  .single-article {
+    display: flex;
+    flex-direction: row;
+  }
+  .comment-list {
+    max-width: 30vw;
+    max-height: 100vh;
+    overflow: auto;
+    font-size: 0.8em;
+  }
+  .comment-list a {
+    display: none;
+  }
 }

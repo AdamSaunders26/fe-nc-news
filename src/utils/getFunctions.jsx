@@ -19,7 +19,18 @@ export function getSingleArticle(article_id) {
   return backendAPI
     .get(`/articles/${article_id}`)
     .then(({ data }) => {
-      return data.articles
+      return data.articles;
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+}
+
+export function getComments(article_id) {
+  return backendAPI
+    .get(`/articles/${article_id}/comments`)
+    .then(({ data }) => {
+      return data.comments;
     })
     .catch((err) => {
       console.log(err);

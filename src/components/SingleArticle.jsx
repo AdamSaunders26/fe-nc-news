@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { getSingleArticle } from "../utils/getFunctions";
+import { getComments, getSingleArticle } from "../utils/getFunctions";
 import ArticleDetails from "./ArticleDetails";
+import CommentsList from "./CommentsList";
 
 export default function SingleArticle() {
   const { article_id } = useParams();
@@ -17,16 +18,21 @@ export default function SingleArticle() {
   //   comment_count: "",
   // };
   const [currentArticle, setCurrentArticle] = useState({});
+  const [currrentComments, setCurrentComments] = useState([]);
 
   useEffect(() => {
     getSingleArticle(article_id).then((article) => {
       setCurrentArticle(article);
     });
+    getComments(article_id).then((comments) => {
+      setCurrentComments(comments);
+    });
   }, []);
 
   return (
-    <section>
+    <section className="single-article">
       <ArticleDetails article={currentArticle} />
+      <CommentsList comments={currrentComments} />
     </section>
   );
 }
