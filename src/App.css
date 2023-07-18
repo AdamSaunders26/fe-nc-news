@@ -66,6 +66,8 @@ select {
   --tertiary-accent: #e4e9b2;
   --primary-background: #586ba4;
   --secondary-background: #0d1821;
+  /* width: 100vw;
+  margin: 0; */
 }
 
 .app {
@@ -73,10 +75,11 @@ select {
   flex-direction: column;
   justify-content: flex-start;
   border: 3px solid red;
-  min-width: 100vw;
-  left: 0;
+  /* min-width: 100%; */
+  /* left: 0; */
   top: 0;
-  width: 100vw;
+  width: 100%;
+  margin: 0;
 }
 header {
   border: 3px solid red;
