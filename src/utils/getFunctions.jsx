@@ -14,3 +14,14 @@ export function getArticles() {
       console.log(err);
     });
 }
+
+export function getSingleArticle(article_id) {
+  return backendAPI
+    .get(`/articles/${article_id}`)
+    .then(({ data }) => {
+      return data.articles
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+}

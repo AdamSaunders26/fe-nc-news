@@ -6,15 +6,16 @@ import Header from "./components/Header";
 import { Routes, Route } from "react-router-dom";
 import ArticlesList from "./components/ArticlesList";
 import { getArticles } from "./utils/getFunctions";
+import SingleArticle from "./components/SingleArticle";
 
 function App() {
   const [allArticles, setAllArticles] = useState([]);
-  const [loading, setLoading] = useState(true)
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     getArticles().then((articles) => {
       setAllArticles(articles);
-      setLoading(false)
+      setLoading(false);
     });
   }, []);
   return (
@@ -26,7 +27,15 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route
             path="/articles"
-            element={<ArticlesList loading={loading} allArticles={allArticles} />}
+            element={
+              <ArticlesList loading={loading} allArticles={allArticles} />
+            }
+          />
+          <Route
+            path="/articles/:article_id"
+            element={
+              <SingleArticle />
+            }
           />
         </Routes>
       </main>
