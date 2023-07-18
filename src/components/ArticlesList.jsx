@@ -1,5 +1,6 @@
 import ArticleCard from "./ArticleCard";
 import Skeleton from "@mui/material/Skeleton";
+import { Link } from "react-router-dom";
 
 export default function ArticlesList({ loading, allArticles }) {
   return (
@@ -13,11 +14,12 @@ export default function ArticlesList({ loading, allArticles }) {
       ) : (
         allArticles.map((article) => {
           return (
-            <ArticleCard
+            <Link
               key={article.article_id}
-              article={article}
-              loading={loading}
-            />
+              to={`/articles/${article.article_id}`}
+            >
+              <ArticleCard article={article} loading={loading} />
+            </Link>
           );
         })
       )}
