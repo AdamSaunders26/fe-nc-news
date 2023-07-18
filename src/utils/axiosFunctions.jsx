@@ -36,3 +36,11 @@ export function getComments(article_id) {
       console.log(err);
     });
 }
+
+export function patchArticle(article_id, inc_votes) {
+  return backendAPI
+    .patch(`/articles/${article_id}`, { inc_votes })
+    .then(({ data }) => {
+      return data.patchedArticle;
+    });
+}

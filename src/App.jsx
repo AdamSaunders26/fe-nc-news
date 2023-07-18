@@ -5,7 +5,7 @@ import Navbar from "./components/Navbar";
 import Header from "./components/Header";
 import { Routes, Route } from "react-router-dom";
 import ArticlesList from "./components/ArticlesList";
-import { getArticles } from "./utils/getFunctions";
+import { getArticles } from "./utils/axiosFunctions";
 import SingleArticle from "./components/SingleArticle";
 
 function App() {

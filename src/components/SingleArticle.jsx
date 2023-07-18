@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { getComments, getSingleArticle } from "../utils/getFunctions";
+import { getComments, getSingleArticle } from "../utils/axiosFunctions";
 import ArticleDetails from "./ArticleDetails";
 import CommentsList from "./CommentsList";
 import Skeleton from "@mui/material/Skeleton";
@@ -16,19 +16,19 @@ export default function SingleArticle() {
   useEffect(() => {
     getSingleArticle(article_id).then((article) => {
       setCurrentArticle(article);
-      // setLoading((loading) => {
-      //   const newLoading = [...loading];
-      //   newLoading[0] = false;
-      //   return newLoading;
-      // });
+      setLoading((loading) => {
+        const newLoading = [...loading];
+        newLoading[0] = false;
+        return newLoading;
+      });
     });
     getComments(article_id).then((comments) => {
       setCurrentComments(comments);
-      // setLoading((loading) => {
-      //   const newLoading = [...loading];
-      //   newLoading[1] = false;
-      //   return newLoading;
-      // });
+      setLoading((loading) => {
+        const newLoading = [...loading];
+        newLoading[1] = false;
+        return newLoading;
+      });
     });
   }, []);
 

@@ -136,21 +136,22 @@ main section {
   width: 4.5em;
   height: 3em;
 }
-.single-article{
-  display:flex;
+.single-article {
+  display: flex;
   flex-direction: column;
 }
 .skeleton {
-    width: 100%;
+  width: 100%;
 }
 .comment-skeleton {
-    width: 50%;
-    align-self: center;
+  width: 50%;
+  align-self: center;
 }
 .article-details {
   border: 3px solid blue;
   display: flex;
   flex-direction: column;
+  width: 100%;
 }
 .article-details * {
   padding: 0em 0.5em;
@@ -186,6 +187,9 @@ main section {
   margin: 0em 0.15em;
   display: flex;
   font-size: 1.5em;
+  border-radius: 100vw;
+  border: 0;
+  background: transparent;
 }
 .comment-card {
   border: 3px solid hotpink;
@@ -211,6 +215,23 @@ main section {
   display: flex;
   flex-direction: column;
 }
+.article-votes button:hover {
+  cursor: pointer;
+}
+.article-votes .downvote:active {
+  color: blue;
+}
+.article-votes .upvote:active {
+  color: red;
+}
+.article-votes .upvote-clicked {
+  background: red;
+  color: black;
+}
+.article-votes .downvote-clicked {
+  background: blue;
+  color: black;
+}
 
 @media only screen and (min-width: 850px) {
   .single-article {
@@ -225,16 +246,5 @@ main section {
   }
   .comment-list a {
     display: none;
-  };
-  border-radius: 100vw;
-  
-}
-.article-votes button:hover {
-  cursor: pointer;
-}
-.article-votes .downvote:active {
-  color: blue;
-}
-.article-votes .upvote:active {
-  color: red;
+  }
 }
