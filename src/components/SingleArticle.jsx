@@ -5,8 +5,9 @@ import ArticleDetails from "./ArticleDetails";
 import CommentsList from "./CommentsList";
 import Skeleton from "@mui/material/Skeleton";
 import { ArticleSkeleton, CommentSkeleton } from "../utils/loadingSkeletons";
+import NewComment from "./NewComment";
 
-export default function SingleArticle() {
+export default function SingleArticle({ username }) {
   const { article_id } = useParams();
 
   const [currentArticle, setCurrentArticle] = useState({});
@@ -44,6 +45,11 @@ export default function SingleArticle() {
       ) : (
         <CommentsList comments={currrentComments} />
       )}
+      <NewComment
+        article_id={article_id}
+        username={username}
+        setCurrentComments={setCurrentComments}
+      />
     </section>
   );
 }

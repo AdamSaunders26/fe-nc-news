@@ -85,7 +85,7 @@ a {
   text-decoration: none;
 }
 a:hover {
-  text-decoration: underline
+  text-decoration: underline;
 }
 header {
   border: 3px solid red;
@@ -220,6 +220,8 @@ main section {
 .comment-list {
   display: flex;
   flex-direction: column;
+  height: 25em;
+  overflow: auto;
 }
 .article-votes button:hover {
   cursor: pointer;
@@ -238,19 +240,50 @@ main section {
   background: blue;
   color: black;
 }
+.new-comment form {
+  border: 3px solid gold;
+  display: flex;
+  flex-direction: column;
+  padding: .5em .5em;
+  padding-bottom: 0em;
+}
 
+.new-comment button {
+  width: fit-content;
+  align-self: flex-end;
+  margin: 0.4em 0.5em;
+}
 @media only screen and (min-width: 850px) {
-  .single-article {
+  /* .single-article {
     display: flex;
     flex-direction: row;
+  } */
+  .single-article {
+    display: grid;
+    grid-template-columns: auto max-content;
+    grid-template-rows: auto auto;
+    grid-template-areas:
+      "article comments"
+      "article post";
+    height: fit-content;
   }
+  .single-article .article-details {
+    grid-row-start: 1;
+    grid-row-end: span 2;
+  }
+
   .comment-list {
     max-width: 30vw;
-    max-height: 100vh;
+    max-height: 80vh;
+    height: auto;
     overflow: auto;
     font-size: 0.8em;
+    align-self: stretch;
   }
   .comment-list a {
     display: none;
+  }
+  .new-comment form {
+    height: 100%;
   }
 }

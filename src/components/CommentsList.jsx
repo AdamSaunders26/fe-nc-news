@@ -24,7 +24,6 @@ export default function CommentsList({ comments }) {
         {comments.map((comment) => {
           return <CommentCard key={comment.comment_id} comment={comment} />;
         })}
-        <a href="#header">Back to top</a>
       </section>
     );
   }
