@@ -1,31 +1,32 @@
 import { capitaliseString, convertDate } from "../utils/utilityFunctions";
 
-export default function ArticleCard({ article }) {
+export default function ArticleDetails({ article }) {
   const {
     title,
     topic,
     author,
-    votes,
+    body,
     comment_count,
-    article_img_url,
     created_at,
+    votes,
+    article_img_url,
   } = article;
+  
 
   return (
-    <section className="article-card">
-      <div>
-        <h3>{title}</h3>
-        <img src={article_img_url} />
-      </div>
+    <article className="article-details">
+      <h3>{title}</h3>
       <div>
         <p>{author}</p>
         <p>{capitaliseString(topic)}</p>
         <p>{convertDate(created_at)}</p>
       </div>
+      <img src={article_img_url} />
+      <p>{body}</p>
       <div>
         <p>{votes} votes</p>
         <p>{comment_count} comments</p>
       </div>
-    </section>
+    </article>
   );
 }
