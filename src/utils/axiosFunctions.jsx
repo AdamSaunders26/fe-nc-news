@@ -44,3 +44,9 @@ export function patchArticle(article_id, inc_votes) {
       return data.patchedArticle;
     });
 }
+
+export function getTopics() {
+  return backendAPI.get("/topics").then(({ data }) => {
+    return data.topics;
+  });
+}

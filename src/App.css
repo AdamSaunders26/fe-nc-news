@@ -233,6 +233,23 @@ main section {
   color: black;
 }
 
+.filter-bar {
+  background: white;
+  position: fixed;
+  bottom: 0;
+  left:0;
+  right:0;
+  width: auto;
+  height: fit-content;
+  text-align: center;
+  font-size: 1.3em;
+  padding-block: .4em;
+}
+
+.filter-bar a {
+  padding: 0.5em 1em;
+}
+
 @media only screen and (min-width: 850px) {
   .single-article {
     display: flex;
