@@ -27,6 +27,7 @@ export function getSingleArticle(article_id) {
 }
 
 export function getComments(article_id) {
+  
   return backendAPI
     .get(`/articles/${article_id}/comments`)
     .then(({ data }) => {
@@ -49,6 +50,8 @@ export function getTopics() {
   return backendAPI.get("/topics").then(({ data }) => {
     return data.topics;
   });
+}
+
 export function postComment(article_id, comment) {
   return backendAPI
     .post(`/articles/${article_id}/comments`, comment)

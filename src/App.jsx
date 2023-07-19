@@ -14,6 +14,7 @@ function App() {
   const [loading, setLoading] = useState(true);
   const [usernameLoggedIn, setUsernameLoggedIn] = useState("happyamy2016");
   const [allTopics, setAllTopics] = useState([]);
+  const [currentTopic, setCurrentTopic] = useState("all");
 
   useEffect(() => {
     getArticles().then((articles) => {
@@ -22,7 +23,8 @@ function App() {
     });
     getTopics().then((topics) => {
       setAllTopics(() => {
-        return topics.map((topic) => {
+        const topicsAndAll = [{ slug: "all" }, ...topics];
+        return topicsAndAll.map((topic) => {
           return topic.slug;
         });
       });
@@ -38,27 +40,35 @@ function App() {
       <main>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route
+          {/* <Route
             path="/articles"
             element={
               <section style={{ display: "flex" }}>
                 <ArticlesList loading={loading} allArticles={allArticles} />
-                <FilterBar allTopics={allTopics} />
+                <FilterBar
+                  allTopics={allTopics}
+                  setCurrentTopic={setCurrentTopic}
+                  currentTopic={currentTopic}
+                />
               </section>
             }
-          />
-          <Route
-            path="/articles/:topic"
-            element={
-              <section style={{ display: "flex" }}>
-                <ArticlesList loading={loading} allArticles={allArticles} />
-                <FilterBar allTopics={allTopics} />
-              </section>
-            }
-          />
+          /> */}
           <Route
             path="/articles/:article_id"
             element={<SingleArticle username={usernameLoggedIn} />}
+          />
+          <Route
+            path="/articles/topics/:topic"
+            element={
+              <section style={{ display: "flex" }}>
+                <ArticlesList loading={loading} allArticles={allArticles} />
+                <FilterBar
+                  allTopics={allTopics}
+                  setCurrentTopic={setCurrentTopic}
+                  currentTopic={currentTopic}
+                />
+              </section>
+            }
           />
         </Routes>
       </main>

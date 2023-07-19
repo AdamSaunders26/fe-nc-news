@@ -1,14 +1,37 @@
+import { useEffect, useState } from "react";
 import { capitaliseString } from "../utils/utilityFunctions";
-import {Link} from 'react-router-dom'
+import { Link, useNavigate } from "react-router-dom";
 
-export default function FilterBar({ allTopics }) {
+export default function FilterBar({
+  allTopics,
+  setCurrentTopic,
+  currentTopic,
+}) {
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    navigate(`/articles/topics/${currentTopic}`);
+  }, [currentTopic]);
+
   return (
     <section className="filter-bar">
       <label htmlFor="topics">Choose topic: </label>
-      <select id="topic">
-        <option value="all">All</option>
+      <select
+        id="topic"
+        onChange={(e) => {
+          setCurrentTopic(e.target.value);
+        }}
+      >
         {allTopics.map((topic) => {
-          return <option value={topic}>{capitaliseString(topic)}</option>;
+          return (
+            <option
+              key={topic}
+              value={topic}
+              defaultValue={topic == currentTopic}
+            >
+              {capitaliseString(topic)}
+            </option>
+          );
         })}
       </select>
     </section>
