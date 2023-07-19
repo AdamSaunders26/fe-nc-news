@@ -21,9 +21,11 @@ function App() {
   }, []);
   return (
     <div className="app">
-      <Header />
-      <main>
+      <section className="header-nav">
+        <Header />
         <Navbar />
+      </section>
+      <main>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route
@@ -32,7 +34,10 @@ function App() {
               <ArticlesList loading={loading} allArticles={allArticles} />
             }
           />
-          <Route path="/articles/:article_id" element={<SingleArticle username={usernameLoggedIn} />} />
+          <Route
+            path="/articles/:article_id"
+            element={<SingleArticle username={usernameLoggedIn} />}
+          />
         </Routes>
       </main>
     </div>

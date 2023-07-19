@@ -93,7 +93,8 @@ header {
   align-self: center;
   width: inherit;
   color: var(--primary);
-  font-style: ;
+  padding: 0.2em 1em;
+  font-size: 1.3em;
 }
 main {
   border: 3px solid hotpink;
@@ -226,6 +227,12 @@ main section {
 .article-votes button:hover {
   cursor: pointer;
 }
+.article-votes .downvote:hover {
+  color: blue;
+}
+.article-votes .upvote:hover {
+  color: red;
+}
 .article-votes .downvote:active {
   color: blue;
 }
@@ -244,8 +251,14 @@ main section {
   border: 3px solid gold;
   display: flex;
   flex-direction: column;
-  padding: .5em .5em;
+  padding: 0.5em 0.5em;
   padding-bottom: 0em;
+}
+
+.new-comment form div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .new-comment button {
@@ -253,37 +266,63 @@ main section {
   align-self: flex-end;
   margin: 0.4em 0.5em;
 }
-@media only screen and (min-width: 850px) {
-  /* .single-article {
-    display: flex;
-    flex-direction: row;
-  } */
-  .single-article {
-    display: grid;
-    grid-template-columns: auto max-content;
-    grid-template-rows: auto auto;
-    grid-template-areas:
-      "article comments"
-      "article post";
-    height: fit-content;
+
+@media only screen and (max-width: 400px) {
+  .app {
+    font-size: 0.8em;
   }
-  .single-article .article-details {
-    grid-row-start: 1;
-    grid-row-end: span 2;
+
+  .article-card div p {
+    padding: 0.1em;
+    margin: 0;
+  }
+}
+
+@media only screen and (min-width: 850px) {
+  .header-nav {
+    display: flex;
+    align-content: center;
+  }
+  .header-nav header {
+    flex: 1 1 0;
+  }
+  .header-nav nav {
+    flex: 4 1 0;
+    align-self: center;
+    /* padding: .54em; */
+  }
+
+  .single-article-page {
+    display: flex;
+    max-height: max-content;
+  }
+  .single-article {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    max-height: max-content;
+  }
+  .article-details {
+    flex-grow: 1;
+  }
+  .comment-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
   }
 
   .comment-list {
-    max-width: 30vw;
-    max-height: 80vh;
-    height: auto;
+    width: 30vw;
     overflow: auto;
+    overflow-x: hidden;
     font-size: 0.8em;
-    align-self: stretch;
+    flex: 4 1 0;
+  }
+
+  .new-comment {
+    flex: 1 1 0;
   }
   .comment-list a {
     display: none;
-  }
-  .new-comment form {
-    height: 100%;
   }
 }

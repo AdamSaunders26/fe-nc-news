@@ -34,22 +34,26 @@ export default function SingleArticle({ username }) {
   }, []);
 
   return (
-    <section className="single-article">
-      {loading[0] ? (
-        <ArticleSkeleton />
-      ) : (
-        <ArticleDetails article={currentArticle} />
-      )}
-      {loading[1] ? (
-        <CommentSkeleton />
-      ) : (
-        <CommentsList comments={currrentComments} />
-      )}
-      <NewComment
-        article_id={article_id}
-        username={username}
-        setCurrentComments={setCurrentComments}
-      />
-    </section>
+    <div className="single-article-page">
+      <section className="single-article">
+        {loading[0] ? (
+          <ArticleSkeleton />
+        ) : (
+          <ArticleDetails article={currentArticle} />
+        )}
+      </section>
+      <section className="comment-section">
+        {loading[1] ? (
+          <CommentSkeleton />
+        ) : (
+          <CommentsList comments={currrentComments} />
+        )}
+        <NewComment
+          article_id={article_id}
+          username={username}
+          setCurrentComments={setCurrentComments}
+        />
+      </section>
+    </div>
   );
 }
