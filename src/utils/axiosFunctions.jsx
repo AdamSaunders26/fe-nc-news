@@ -49,4 +49,10 @@ export function getTopics() {
   return backendAPI.get("/topics").then(({ data }) => {
     return data.topics;
   });
+export function postComment(article_id, comment) {
+  return backendAPI
+    .post(`/articles/${article_id}/comments`, comment)
+    .then(({ data }) => {
+      return data.postedComment;
+    });
 }

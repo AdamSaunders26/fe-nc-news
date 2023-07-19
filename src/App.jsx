@@ -12,6 +12,7 @@ import FilterBar from "./components/FilterBar";
 function App() {
   const [allArticles, setAllArticles] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [usernameLoggedIn, setUsernameLoggedIn] = useState("happyamy2016");
   const [allTopics, setAllTopics] = useState([]);
 
   useEffect(() => {
@@ -30,9 +31,11 @@ function App() {
 
   return (
     <div className="app">
-      <Header />
-      <main>
+      <section className="header-nav">
+        <Header />
         <Navbar />
+      </section>
+      <main>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route
@@ -53,7 +56,10 @@ function App() {
               </section>
             }
           />
-          <Route path="/articles/:article_id" element={<SingleArticle />} />
+          <Route
+            path="/articles/:article_id"
+            element={<SingleArticle username={usernameLoggedIn} />}
+          />
         </Routes>
       </main>
     </div>
