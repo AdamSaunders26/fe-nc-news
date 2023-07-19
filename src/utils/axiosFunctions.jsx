@@ -44,3 +44,11 @@ export function patchArticle(article_id, inc_votes) {
       return data.patchedArticle;
     });
 }
+
+export function postComment(article_id, comment) {
+  return backendAPI
+    .post(`/articles/${article_id}/comments`, comment)
+    .then(({ data }) => {
+      return data.postedComment;
+    });
+}
