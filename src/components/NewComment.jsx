@@ -7,14 +7,14 @@ export default function NewComment({
   username,
   setCurrentComments,
 }) {
-  const [newComment, setNewComment] = useState(null);
+  const [newComment, setNewComment] = useState("");
   const [tempComment, setTempComment] = useState("");
   const [formSubmitted, setFormSubmitted] = useState(false);
   const [commentMessage, setCommentMessage] = useState(null);
   const [lockButton, setLockButton] = useState(false);
 
   useEffect(() => {
-    if (newComment !== null && formSubmitted) {
+    if (newComment !== "" && formSubmitted) {
       postComment(article_id, { username: username, body: newComment }).then(
         (postedComment) => {
           setCommentMessage("success");
@@ -26,7 +26,7 @@ export default function NewComment({
         }
       );
     }
-    setNewComment(null);
+    setNewComment("");
   }, [formSubmitted]);
 
   function handleSubmit(e) {

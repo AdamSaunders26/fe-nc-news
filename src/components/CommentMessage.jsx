@@ -5,7 +5,6 @@ export default function CommentMessage({ commentMessage }) {
     case "empty":
       return <p>Cannot submit empty comments</p>;
     case "waiting":
-      console.log("here");
       return <p>Post being submitted...</p>;
     case "success":
       return <p>Post successful!</p>;
