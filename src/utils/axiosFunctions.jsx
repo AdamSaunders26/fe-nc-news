@@ -68,7 +68,7 @@ export function deleteComment(comment_id) {
   return backendAPI
     .delete(`/comments/${comment_id}`)
     .then(() => {
-      return true;
+      return comment_id;
     })
     .catch((err) => {
       console.log(err);

@@ -1,9 +1,11 @@
+
 import { convertDate } from "../utils/utilityFunctions";
 import ModifyComment from "./ModifyComment";
 
-export default function CommentCard({ comment, username }) {
+export default function CommentCard({ comment, username , setDeletedComment}) {
   const { author, body, created_at, votes, comment_id } = comment;
   
+
   return (
     <section>
       <section className="comment-card">
@@ -14,7 +16,7 @@ export default function CommentCard({ comment, username }) {
           <p>{convertDate(created_at)}</p>
         </div>
       </section>
-      {username === author ? <ModifyComment /> : null}
+      {username === author ? <ModifyComment comment_id={comment_id} setDeletedComment={setDeletedComment} /> : null}
     </section>
   );
 }
