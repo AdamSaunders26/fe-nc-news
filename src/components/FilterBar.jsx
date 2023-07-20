@@ -61,7 +61,7 @@ export default function FilterBar({ allTopics, setAllArticles, setLoading }) {
           }}
           id="sortby"
         >
-          <option value="created_by">Date</option>
+          <option value="created_at">Date</option>
           <option value="title">Title</option>
           <option value="topic">Topic</option>
           <option value="votes">Votes</option>
