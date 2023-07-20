@@ -24,11 +24,7 @@ export default function FilterBar({
       >
         {allTopics.map((topic) => {
           return (
-            <option
-              key={topic}
-              value={topic}
-              defaultValue={topic == currentTopic}
-            >
+            <option key={topic} value={topic} selected={topic == currentTopic}>
               {capitaliseString(topic)}
             </option>
           );

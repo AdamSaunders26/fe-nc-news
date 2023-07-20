@@ -5,9 +5,17 @@ import { ArticleOverviewSkeleton } from "../utils/loadingSkeletons";
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 
-export default function ArticlesList({ loading, allArticles }) {
+export default function ArticlesList({
+  loading,
+  allArticles,
+  setCurrentTopic,
+}) {
   const { topic } = useParams();
-  const [currentArticles, setCurrentArticles] = useState([]);
+
+  useEffect(() => {
+    setCurrentTopic(topic);
+  }, []);
+
   const filteredArticles = allArticles.filter((article) => {
     return topic === "all" ? true : article.topic === topic;
   });

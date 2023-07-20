@@ -35,7 +35,7 @@ function App() {
     <div className="app">
       <section className="header-nav">
         <Header />
-        <Navbar />
+        <Navbar currentTopic={currentTopic} />
       </section>
       <main>
         <Routes>
@@ -61,7 +61,11 @@ function App() {
             path="/articles/topics/:topic"
             element={
               <section style={{ display: "flex" }}>
-                <ArticlesList loading={loading} allArticles={allArticles} />
+                <ArticlesList
+                  loading={loading}
+                  allArticles={allArticles}
+                  setCurrentTopic={setCurrentTopic}
+                />
                 <FilterBar
                   allTopics={allTopics}
                   setCurrentTopic={setCurrentTopic}
