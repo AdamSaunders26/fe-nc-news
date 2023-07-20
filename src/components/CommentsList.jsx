@@ -2,8 +2,7 @@ import CommentCard from "./CommentCard";
 
 export default function CommentsList({ comments }) {
   if (!comments.length) {
-    console.log("here");
-    return (
+        return (
       <section>
         <section className="comment-card">
           <p className="no-comments">No comments yet.</p>

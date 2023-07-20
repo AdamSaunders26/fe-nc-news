@@ -1,36 +1,11 @@
 import ArticleCard from "./ArticleCard";
-import Skeleton from "@mui/material/Skeleton";
 import { Link } from "react-router-dom";
 import { ArticleOverviewSkeleton } from "../utils/loadingSkeletons";
-import { useParams } from "react-router-dom";
-import { useEffect, useState } from "react";
-import { getArticles } from "../utils/axiosFunctions";
 
-export default function ArticlesList({
-  loading,
-  allArticles,
-  currentTopic,
-  setCurrentTopic,
-  setAllArticles,
-}) {
-  const { topic } = useParams();
-  const [queryLoading, setQueryLoading] = useState(false);
-  useEffect(() => {
-    setCurrentTopic(topic);
-  }, []);
-
-  useEffect(() => {
-    setQueryLoading(true);
-    getArticles(topic).then((newArticles) => {
-      setAllArticles(newArticles);
-      setQueryLoading(false);
-    });
-  }, [topic]);
-  console.log(allArticles);
-  
+export default function ArticlesList({ loading, allArticles }) {
   return (
     <section>
-      {loading || queryLoading ? (
+      {loading ? (
         <ArticleOverviewSkeleton />
       ) : (
         allArticles.map((article) => {

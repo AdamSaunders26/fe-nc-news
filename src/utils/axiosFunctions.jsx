@@ -9,7 +9,7 @@ export function getArticles(topic) {
   if (topic && topic != "all") {
     APIstring += `?topic=${topic}`;
   }
-  console.log(APIstring);
+
   return backendAPI
     .get(APIstring)
     .then(({ data }) => {

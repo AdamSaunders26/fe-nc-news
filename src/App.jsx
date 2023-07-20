@@ -14,13 +14,8 @@ function App() {
   const [loading, setLoading] = useState(true);
   const [usernameLoggedIn, setUsernameLoggedIn] = useState("happyamy2016");
   const [allTopics, setAllTopics] = useState([]);
-  const [currentTopic, setCurrentTopic] = useState("all");
 
   useEffect(() => {
-    getArticles().then((articles) => {
-      setAllArticles(articles);
-      setLoading(false);
-    });
     getTopics().then((topics) => {
       setAllTopics(() => {
         const topicsAndAll = [{ slug: "all" }, ...topics];
@@ -35,7 +30,7 @@ function App() {
     <div className="app">
       <section className="header-nav">
         <Header />
-        <Navbar currentTopic={currentTopic} />
+        <Navbar />
       </section>
       <main>
         <Routes>
@@ -51,14 +46,12 @@ function App() {
                 <ArticlesList
                   loading={loading}
                   allArticles={allArticles}
-                  currentTopic={currentTopic}
-                  setCurrentTopic={setCurrentTopic}
                   setAllArticles={setAllArticles}
                 />
                 <FilterBar
                   allTopics={allTopics}
-                  setCurrentTopic={setCurrentTopic}
-                  currentTopic={currentTopic}
+                  setAllArticles={setAllArticles}
+                  setLoading={setLoading}
                 />
               </section>
             }
