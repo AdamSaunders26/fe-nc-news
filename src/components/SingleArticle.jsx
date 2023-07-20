@@ -9,7 +9,6 @@ import NewComment from "./NewComment";
 
 export default function SingleArticle({ username }) {
   const { article_id } = useParams();
-
   const [currentArticle, setCurrentArticle] = useState({});
   const [currrentComments, setCurrentComments] = useState([]);
   const [loading, setLoading] = useState([true, true]);
