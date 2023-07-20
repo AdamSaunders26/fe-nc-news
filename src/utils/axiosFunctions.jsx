@@ -9,7 +9,10 @@ export function getArticles(
   sortby = "created_at",
   order = "desc"
 ) {
-  let APIstring = `/articles?topic=${topic}&sortby=${sortby}&order=${order}`;
+  let APIstring =
+    topic === "all"
+      ? `/articles?sortby=${sortby}&order=${order}`
+      : `/articles?topic=${topic}&sortby=${sortby}&order=${order}`;
 
   console.log(APIstring);
   return backendAPI
