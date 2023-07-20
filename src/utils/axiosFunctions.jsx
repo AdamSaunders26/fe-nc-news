@@ -52,3 +52,14 @@ export function postComment(article_id, comment) {
       return data.postedComment;
     });
 }
+
+export function deleteComment(comment_id) {
+  return backendAPI
+    .delete(`/comments/${comment_id}`)
+    .then(() => {
+      return true;
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+}

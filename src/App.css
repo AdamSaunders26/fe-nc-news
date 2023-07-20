@@ -126,7 +126,7 @@ nav a {
   border-radius: 1em;
   background: var(--primary-accent);
   color: #000000;
- font-size: .9em;
+  font-size: 0.9em;
   padding: 0.25em 0.5em;
   /* border: 3px solid lightgreen; */
 }
@@ -234,7 +234,7 @@ main section {
 }
 .comment-card * {
   padding: 0.5em 1em;
-  color: var(--secondary-accent)
+  color: var(--secondary-accent);
 }
 .comment-card div {
   display: flex;
@@ -267,10 +267,10 @@ main section {
   flex-direction: column;
   height: 25em;
   overflow: auto;
-  
+
   /* border: 3px solid gold; */
   margin: 0.5em 0.5em;
-  margin-bottom: .8em;
+  margin-bottom: 0.8em;
   -webkit-mask-image: linear-gradient(
     to bottom,
     transparent 0%,
@@ -310,7 +310,7 @@ main section {
   flex-direction: column;
   padding: 0.6em 0.8em;
   padding-bottom: 0em;
-  margin-bottom: .5em;
+  margin-bottom: 0.5em;
 }
 
 .new-comment form div {
@@ -319,31 +319,45 @@ main section {
   justify-content: space-between;
 }
 
-.new-comment button {
+.new-comment button,
+.modify-comment button {
   width: fit-content;
   align-self: flex-end;
   margin: 0.4em 0.5em;
-  padding: .15em .5em;
-  border-radius: .5em;
+  padding: 0.15em 0.5em;
+  border-radius: 0.5em;
   color: var(--secondary-accent);
   background: var(--primary-accent);
-  border: 0px solid var(--secondary-accent)
+  border: 0px solid var(--secondary-accent);
 }
 .new-comment button:hover {
   cursor: pointer;
   background: #c0191e;
 }
-.new-comment button:active{
+.new-comment button:active {
   box-shadow: inset 2px 2px 10px;
 }
+.modify-comment button {
+    background: var(--primary-background);
+}
+.modify-comment button:hover {
+  cursor: pointer;
+  background: rgb(213, 212, 212);
+}
+.modify-comment button:active {
+  box-shadow: inset 2px 2px 10px;
+}
+.modify-comment {
+  display: flex;
+  justify-content: flex-end;
+}
 .new-comment textarea {
-  border-radius: .5em;
-  
+  border-radius: 0.5em;
 }
 .new-comment textarea:focus {
-  border-radius: .5em;
+  border-radius: 0.5em;
   outline: var(--primary-accent);
-  border: 2px solid var(--primary-accent)
+  border: 2px solid var(--primary-accent);
 }
 @media only screen and (max-width: 400px) {
   .app {
@@ -387,7 +401,7 @@ main section {
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
-    margin-left: .5em;
+    margin-left: 0.5em;
     /* border: 3px solid gold; */
   }
 
