@@ -4,28 +4,36 @@ import { Link } from "react-router-dom";
 import { ArticleOverviewSkeleton } from "../utils/loadingSkeletons";
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
+import { getArticles } from "../utils/axiosFunctions";
 
 export default function ArticlesList({
   loading,
   allArticles,
+  currentTopic,
   setCurrentTopic,
+  setAllArticles,
 }) {
   const { topic } = useParams();
-
+  const [queryLoading, setQueryLoading] = useState(false);
   useEffect(() => {
     setCurrentTopic(topic);
   }, []);
 
-  const filteredArticles = allArticles.filter((article) => {
-    return topic === "all" ? true : article.topic === topic;
-  });
-
+  useEffect(() => {
+    setQueryLoading(true);
+    getArticles(topic).then((newArticles) => {
+      setAllArticles(newArticles);
+      setQueryLoading(false);
+    });
+  }, [topic]);
+  console.log(allArticles);
+  
   return (
     <section>
-      {loading ? (
+      {loading || queryLoading ? (
         <ArticleOverviewSkeleton />
       ) : (
-        filteredArticles.map((article) => {
+        allArticles.map((article) => {
           return (
             <Link
               key={article.article_id}

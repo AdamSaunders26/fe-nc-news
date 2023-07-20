@@ -40,19 +40,6 @@ function App() {
       <main>
         <Routes>
           <Route path="/" element={<Home />} />
-          {/* <Route
-            path="/articles"
-            element={
-              <section style={{ display: "flex" }}>
-                <ArticlesList loading={loading} allArticles={allArticles} />
-                <FilterBar
-                  allTopics={allTopics}
-                  setCurrentTopic={setCurrentTopic}
-                  currentTopic={currentTopic}
-                />
-              </section>
-            }
-          /> */}
           <Route
             path="/articles/:article_id"
             element={<SingleArticle username={usernameLoggedIn} />}
@@ -60,11 +47,13 @@ function App() {
           <Route
             path="/articles/topics/:topic"
             element={
-              <section style={{ display: "flex" }}>
+              <section>
                 <ArticlesList
                   loading={loading}
                   allArticles={allArticles}
+                  currentTopic={currentTopic}
                   setCurrentTopic={setCurrentTopic}
+                  setAllArticles={setAllArticles}
                 />
                 <FilterBar
                   allTopics={allTopics}

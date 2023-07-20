@@ -15,7 +15,7 @@ export default function FilterBar({
 
   return (
     <section className="filter-bar">
-      <label htmlFor="topics">Choose topic: </label>
+      <label htmlFor="topics"><h2>Choose topic: </h2></label>
       <select
         id="topic"
         onChange={(e) => {

@@ -4,9 +4,14 @@ const backendAPI = axios.create({
   baseURL: "https://nc-news-app.onrender.com/api",
 });
 
-export function getArticles() {
+export function getArticles(topic) {
+  let APIstring = `/articles`;
+  if (topic && topic != "all") {
+    APIstring += `?topic=${topic}`;
+  }
+  console.log(APIstring);
   return backendAPI
-    .get("/articles")
+    .get(APIstring)
     .then(({ data }) => {
       return data.articles;
     })
@@ -27,7 +32,6 @@ export function getSingleArticle(article_id) {
 }
 
 export function getComments(article_id) {
-  
   return backendAPI
     .get(`/articles/${article_id}/comments`)
     .then(({ data }) => {
