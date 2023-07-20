@@ -61,11 +61,11 @@ select {
   font-family: Montserrat, sans-serif;
   /* font-family: Verdana, Geneva, Tahoma, sans-serif; */
   display: flex;
-  --primary-accent: #48a9a6;
-  --secondary-accent: #ba274a;
+  --primary-accent: #eb1c23;
+  --secondary-accent: #000000;
   --tertiary-accent: #e4e9b2;
-  --primary-background: #586ba4;
-  --secondary-background: #0d1821;
+  --primary-background: #ffffff;
+  --secondary-background: #ebebeb;
   /* width: 100vw;
   margin: 0; */
 }
@@ -74,12 +74,13 @@ select {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  border: 3px solid red;
+  /* border: 3px solid red; */
   /* min-width: 100%; */
   /* left: 0; */
   top: 0;
   width: 100%;
   margin: 0;
+  background: var(--secondary-background);
 }
 a {
   text-decoration: none;
@@ -87,25 +88,34 @@ a {
 a:hover {
   text-decoration: underline;
 }
+
+a,
+a:visited {
+  color: inherit;
+}
 header {
-  border: 3px solid red;
+  /* border: 3px solid red; */
+  border-radius: 1em;
   height: fit-content;
   align-self: center;
   width: inherit;
-  color: var(--primary);
+  background: var(--primary-background);
+  color: var(--primary-accent);
   padding: 0.2em 1em;
+  margin: 0.5em;
   font-size: 1.3em;
 }
 main {
-  border: 3px solid hotpink;
+  /* border: 3px solid hotpink; */
   display: flex;
   flex-direction: column;
   align-self: center;
   padding: 0.5em 1em;
   width: inherit;
+  color: var(--secondary-accent);
 }
 nav {
-  border: 3px solid green;
+  /* border: 3px solid green; */
   height: fit-content;
   display: flex;
   justify-content: space-between;
@@ -113,20 +123,29 @@ nav {
 
 nav a {
   margin: 0.25em 1em;
-  border: 3px solid lightgreen;
+  border-radius: 1em;
+  background: var(--primary-accent);
+  color: #000000;
+ font-size: .9em;
+  padding: 0.25em 0.5em;
+  /* border: 3px solid lightgreen; */
 }
 
 main section {
-  border: 3px solid orange;
+  /* border: 3px solid orange; */
   flex-grow: 1;
 }
 
 .article-card {
-  border: 3px solid blue;
-  padding: 0.25em 1em;
-  margin: 0.5em 0em;
+  /* border: 3px solid blue; */
+  border-radius: 1em;
+  /* box-shadow: 5px 5px 10px; */
+  padding: 0.8em 1em;
+  margin-top: 0;
+  margin-bottom: 1.2em;
   display: flex;
   flex-direction: column;
+  background: var(--primary-background);
 }
 .article-card div {
   display: flex;
@@ -155,10 +174,15 @@ main section {
   align-self: center;
 }
 .article-details {
-  border: 3px solid blue;
+  /* border: 3px solid blue; */
+  border-radius: 1em;
+
   display: flex;
   flex-direction: column;
   width: 100%;
+  padding: 0.5em 0.5em;
+  margin: 0.5em 0em;
+  background: var(--primary-background);
 }
 .article-details * {
   padding: 0em 0.5em;
@@ -199,12 +223,18 @@ main section {
   background: transparent;
 }
 .comment-card {
-  border: 3px solid hotpink;
+  /* border: 3px solid hotpink; */
+  border-radius: 1em;
+  background: var(--primary-accent);
+  color: var(--primary-background);
   display: flex;
   flex-direction: column;
+  margin: 0.5em 0em;
+  /* box-shadow: 5px 5px 10px black; */
 }
 .comment-card * {
   padding: 0.5em 1em;
+  color: var(--secondary-accent)
 }
 .comment-card div {
   display: flex;
@@ -212,17 +242,42 @@ main section {
   padding: 0;
   /* border: 3px solid brown; */
 }
-/* .no-comments {
-  flex-grow: 1;
-} */
+
+.comment-card > p {
+  font-weight: bolder;
+}
+
 .comment-list a {
   align-self: center;
+}
+::-webkit-scrollbar {
+  width: 0.8em;
+}
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 10px 10px var(--secondary-background);
+  border: solid 3px transparent;
+}
+::-webkit-scrollbar-thumb {
+  box-shadow: inset 0 0 10px 10px var(--primary-accent);
+  border-radius: 100vw;
+  border: solid 3px transparent;
 }
 .comment-list {
   display: flex;
   flex-direction: column;
   height: 25em;
   overflow: auto;
+  
+  /* border: 3px solid gold; */
+  margin: 0.5em 0.5em;
+  margin-bottom: .8em;
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    transparent 0%,
+    black 20px,
+    black calc(100% - 20px),
+    transparent 100%
+  );
 }
 .article-votes button:hover {
   cursor: pointer;
@@ -248,11 +303,14 @@ main section {
   color: black;
 }
 .new-comment form {
-  border: 3px solid gold;
+  /* border: 3px solid gold; */
+  background: var(--primary-background);
+  border-radius: 1em;
   display: flex;
   flex-direction: column;
-  padding: 0.5em 0.5em;
+  padding: 0.6em 0.8em;
   padding-bottom: 0em;
+  margin-bottom: .5em;
 }
 
 .new-comment form div {
@@ -265,8 +323,28 @@ main section {
   width: fit-content;
   align-self: flex-end;
   margin: 0.4em 0.5em;
+  padding: .15em .5em;
+  border-radius: .5em;
+  color: var(--secondary-accent);
+  background: var(--primary-accent);
+  border: 0px solid var(--secondary-accent)
 }
-
+.new-comment button:hover {
+  cursor: pointer;
+  background: #c0191e;
+}
+.new-comment button:active{
+  box-shadow: inset 2px 2px 10px;
+}
+.new-comment textarea {
+  border-radius: .5em;
+  
+}
+.new-comment textarea:focus {
+  border-radius: .5em;
+  outline: var(--primary-accent);
+  border: 2px solid var(--primary-accent)
+}
 @media only screen and (max-width: 400px) {
   .app {
     font-size: 0.8em;
@@ -326,6 +404,8 @@ main section {
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
+    margin-left: .5em;
+    /* border: 3px solid gold; */
   }
 
   .comment-list {
