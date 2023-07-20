@@ -1,5 +1,4 @@
 import ArticleCard from "./ArticleCard";
-import Skeleton from "@mui/material/Skeleton";
 import { Link } from "react-router-dom";
 import { ArticleOverviewSkeleton } from "../utils/loadingSkeletons";
 
@@ -7,7 +6,7 @@ export default function ArticlesList({ loading, allArticles }) {
   return (
     <section>
       {loading ? (
-       <ArticleOverviewSkeleton />
+        <ArticleOverviewSkeleton />
       ) : (
         allArticles.map((article) => {
           return (

@@ -63,7 +63,7 @@ select {
   display: flex;
   --primary-accent: #eb1c23;
   --secondary-accent: #000000;
-  --tertiary-accent: #e4e9b2;
+  --tertiary-accent: #1c29eb;
   --primary-background: #ffffff;
   --secondary-background: #ebebeb;
   /* width: 100vw;
@@ -105,6 +105,7 @@ header {
   margin: 0.5em;
   font-size: 1.3em;
 }
+
 main {
   /* border: 3px solid hotpink; */
   display: flex;
@@ -221,6 +222,7 @@ main section {
   border-radius: 100vw;
   border: 0;
   background: transparent;
+  padding: 0.1em;
 }
 .comment-card {
   /* border: 3px solid hotpink; */
@@ -278,28 +280,35 @@ main section {
     black calc(100% - 20px),
     transparent 100%
   );
+  mask-image: linear-gradient(
+    to bottom,
+    transparent 0%,
+    black 20px,
+    black calc(100% - 20px),
+    transparent 100%
+  );
 }
 .article-votes button:hover {
   cursor: pointer;
 }
 .article-votes .downvote:hover {
-  color: blue;
+  color: var(--tertiary-accent);
 }
 .article-votes .upvote:hover {
-  color: red;
+  color: var(--primary-accent);
 }
 .article-votes .downvote:active {
-  color: blue;
+  color: var(--tertiary-accent);
 }
 .article-votes .upvote:active {
-  color: red;
+  color: var(--primary-accent);
 }
 .article-votes .upvote-clicked {
-  background: red;
+  background: var(--primary-accent);
   color: black;
 }
 .article-votes .downvote-clicked {
-  background: blue;
+  background: var(--tertiary-accent);
   color: black;
 }
 .new-comment form {
@@ -353,9 +362,40 @@ main section {
 }
 .new-comment textarea {
   border-radius: 0.5em;
+  border-radius: 0.5em;
 }
 .new-comment textarea:focus {
   border-radius: 0.5em;
+  outline: var(--primary-accent);
+  border: 2px solid var(--primary-accent);
+}
+.filter-bar {
+  background: var(--primary-background);
+  border-top: 5px solid var(--primary-accent);
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: auto;
+  height: fit-content;
+  text-align: center;
+  font-size: 1.3em;
+  padding-block: 0.3em;
+  color: var(--primary-accent);
+  font-size: 0.9em;
+  display: flex;
+  justify-content: center;
+}
+
+.filter-bar label {
+  padding: 0em 0.5em;
+}
+.filter-bar select {
+  border-radius: 1em;
+  color: var(--secondary-accent);
+  font-size: 1.2em;
+}
+.filter-bar select:focus {
   outline: var(--primary-accent);
   border: 2px solid var(--primary-accent);
 }
