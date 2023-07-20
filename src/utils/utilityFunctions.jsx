@@ -8,3 +8,4 @@ export function convertDate(date) {
 export function capitaliseString(string) {
   return string ? string.slice(0, 1).toUpperCase() + string.slice(1) : null;
 }
+
