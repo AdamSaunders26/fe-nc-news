@@ -4,11 +4,11 @@ const backendAPI = axios.create({
   baseURL: "https://nc-news-app.onrender.com/api",
 });
 
-export function getArticles(
+export function getArticles([
   topic = "all",
   sortby = "created_at",
-  order = "desc"
-) {
+  order = "desc",
+]) {
   let APIstring =
     topic === "all"
       ? `/articles?sortby=${sortby}&order=${order}`
