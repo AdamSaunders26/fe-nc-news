@@ -11,26 +11,22 @@ export function getArticles([
 ]) {
   const params = topic === "all" ? { sortby, order } : { topic, sortby, order };
 
-  return backendAPI
-    .get("/articles", { params })
-    .then(({ data }) => {
-      return data.articles;
-    })
-    }
+  return backendAPI.get("/articles", { params }).then(({ data }) => {
+    return data.articles;
+  });
+}
 
 export function getSingleArticle(article_id) {
   return backendAPI.get(`/articles/${article_id}`).then(({ data }) => {
     return data.articles;
   });
-  }
+}
 
 export function getComments(article_id) {
-  return backendAPI
-    .get(`/articles/${article_id}/comments`)
-    .then(({ data }) => {
-      return data.comments;
-    })
-    }
+  return backendAPI.get(`/articles/${article_id}/comments`).then(({ data }) => {
+    return data.comments;
+  });
+}
 
 export function patchArticle(article_id, inc_votes) {
   return backendAPI
@@ -55,10 +51,8 @@ export function postComment(article_id, comment) {
 }
 
 export function deleteComment(comment_id) {
-  return backendAPI
-    .delete(`/comment/${comment_id}`)
-    .then(() => {
-      return comment_id;
-    })
-    
+  console.log(comment_id);
+  return backendAPI.delete(`/comments/${comment_id}`).then(() => {
+    return comment_id;
+  });
 }
