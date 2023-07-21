@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 export default function Navbar() {
   return (
     <nav>
-      <Link to={`/articles/topics/all`}>
+      <Link to={`/articles/topics/all?sortby=created_at&order=desc`}>
         <h2>Articles</h2>
       </Link>
       <a>
