@@ -13,7 +13,7 @@ export default function ArticlesList({ loading, allArticles, isError }) {
     );
   } else {
     return (
-      <section>
+      <section className="articles-list">
         {loading ? (
           <ArticleOverviewSkeleton />
         ) : (
