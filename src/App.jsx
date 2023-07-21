@@ -8,6 +8,7 @@ import ArticlesList from "./components/ArticlesList";
 import { getTopics } from "./utils/axiosFunctions";
 import SingleArticle from "./components/SingleArticle";
 import FilterBar from "./components/FilterBar";
+import Error from "./components/Error";
 
 function App() {
   const [allArticles, setAllArticles] = useState([]);
@@ -56,6 +57,7 @@ function App() {
               </section>
             }
           />
+          <Route path="/*" element={<Error />} />
         </Routes>
       </main>
     </div>
