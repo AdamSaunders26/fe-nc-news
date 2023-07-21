@@ -363,6 +363,10 @@ main section {
   display: flex;
   justify-content: flex-end;
 }
+.modify-comment p {
+  align-self: center;
+  padding: 0em 0.5em;
+}
 .new-comment textarea {
   border-radius: 0.5em;
   border-radius: 0.5em;
