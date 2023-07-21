@@ -65,7 +65,7 @@ export function postComment(article_id, comment) {
     });
 }
 
-export function deleteComment(comment_id) {
+export function deleteComment(comment_id, setIsError) {
   return backendAPI
     .delete(`/comments/${comment_id}`)
     .then(() => {
@@ -73,5 +73,6 @@ export function deleteComment(comment_id) {
     })
     .catch((err) => {
       console.log(err);
+      setIsError(true);
     });
 }
