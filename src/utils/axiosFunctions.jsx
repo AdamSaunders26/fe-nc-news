@@ -12,7 +12,7 @@ export function getArticles([
   const params = topic === "all" ? { sortby, order } : { topic, sortby, order };
 
   return backendAPI
-    .get("/articles", params)
+    .get("/articles", { params })
     .then(({ data }) => {
       return data.articles;
     })
