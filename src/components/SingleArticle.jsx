@@ -45,7 +45,7 @@ export default function SingleArticle({ username }) {
         {loading[1] ? (
           <CommentSkeleton />
         ) : (
-          <CommentsList comments={currrentComments} />
+            <CommentsList currentComments={currrentComments}  setCurrentComments={setCurrentComments} username={username} />
         )}
         <NewComment
           article_id={article_id}

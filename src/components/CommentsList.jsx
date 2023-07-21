@@ -1,27 +1,40 @@
 import CommentCard from "./CommentCard";
+import { useEffect, useState } from "react";
 
-export default function CommentsList({ comments }) {
-  if (!comments.length) {
-        return (
-      <section>
-        <section className="comment-card">
-          <p className="no-comments">No comments yet.</p>
-          <div>
-            <p></p>
-            <p></p>
-            <p></p>
-            <p></p>
-            <p></p>
-            <p></p>
-          </div>
-        </section>
+export default function CommentsList({
+  currentComments,
+  username,
+  setCurrentComments,
+}) {
+  const [deletedComment, setDeletedComment] = useState(null);
+  
+  useEffect(() => {
+    if (deletedComment !== null) {
+      const newComments = currentComments.filter((comment) => {
+        return comment.comment_id !== deletedComment;
+      });
+      setCurrentComments(newComments);
+    }
+  }, [deletedComment]);
+
+  if (!currentComments.length) {
+    return (
+      <section className="comment-card">
+        <p className="no-comments">No comments yet.</p>
       </section>
     );
   } else {
     return (
       <section className="comment-list">
-        {comments.map((comment) => {
-          return <CommentCard key={comment.comment_id} comment={comment} />;
+        {currentComments.map((comment) => {
+          return (
+            <CommentCard
+              key={comment.comment_id}
+              comment={comment}
+              username={username}
+              setDeletedComment={setDeletedComment}
+            />
+          );
         })}
       </section>
     );

@@ -328,7 +328,8 @@ main section {
   justify-content: space-between;
 }
 
-.new-comment button {
+.new-comment button,
+.modify-comment button {
   width: fit-content;
   align-self: flex-end;
   margin: 0.4em 0.5em;
@@ -345,7 +346,29 @@ main section {
 .new-comment button:active {
   box-shadow: inset 2px 2px 10px;
 }
+.modify-comment button {
+  background: var(--primary-background);
+}
+.modify-comment button:hover {
+  cursor: pointer;
+  background: rgb(213, 212, 212);
+}
+.modify-comment button:disabled {
+  background: rgb(213, 212, 212);
+}
+.modify-comment button:enabled:active {
+  box-shadow: inset 2px 2px 10px;
+}
+.modify-comment {
+  display: flex;
+  justify-content: flex-end;
+}
+.modify-comment p {
+  align-self: center;
+  padding: 0em 0.5em;
+}
 .new-comment textarea {
+  border-radius: 0.5em;
   border-radius: 0.5em;
 }
 .new-comment textarea:focus {
