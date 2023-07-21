@@ -16,21 +16,13 @@ export function getArticles([
     .then(({ data }) => {
       return data.articles;
     })
-    .catch((err) => {
-      console.log(err);
-    });
-}
+    }
 
 export function getSingleArticle(article_id) {
-  return backendAPI
-    .get(`/articles/${article_id}`)
-    .then(({ data }) => {
-      return data.articles;
-    })
-    .catch((err) => {
-      console.log(err);
-    });
-}
+  return backendAPI.get(`/articles/${article_id}`).then(({ data }) => {
+    return data.articles;
+  });
+  }
 
 export function getComments(article_id) {
   return backendAPI
@@ -38,10 +30,7 @@ export function getComments(article_id) {
     .then(({ data }) => {
       return data.comments;
     })
-    .catch((err) => {
-      console.log(err);
-    });
-}
+    }
 
 export function patchArticle(article_id, inc_votes) {
   return backendAPI
@@ -65,14 +54,11 @@ export function postComment(article_id, comment) {
     });
 }
 
-export function deleteComment(comment_id, setIsError) {
+export function deleteComment(comment_id) {
   return backendAPI
-    .delete(`/comments/${comment_id}`)
+    .delete(`/comment/${comment_id}`)
     .then(() => {
       return comment_id;
     })
-    .catch((err) => {
-      console.log(err);
-      setIsError(true);
-    });
+    
 }

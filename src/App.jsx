@@ -8,12 +8,14 @@ import ArticlesList from "./components/ArticlesList";
 import { getTopics } from "./utils/axiosFunctions";
 import SingleArticle from "./components/SingleArticle";
 import FilterBar from "./components/FilterBar";
+import ErrorHandler from "./components/ErrorHandler";
 
 function App() {
   const [allArticles, setAllArticles] = useState([]);
   const [loading, setLoading] = useState(true);
   const [usernameLoggedIn, setUsernameLoggedIn] = useState("happyamy2016");
   const [allTopics, setAllTopics] = useState([]);
+  const [isError, setIsError] = useState(null);
 
   useEffect(() => {
     getTopics().then((topics) => {
@@ -47,15 +49,18 @@ function App() {
                   loading={loading}
                   allArticles={allArticles}
                   setAllArticles={setAllArticles}
+                  isError={isError}
                 />
                 <FilterBar
                   allTopics={allTopics}
                   setAllArticles={setAllArticles}
                   setLoading={setLoading}
+                  setIsError={setIsError}
                 />
               </section>
             }
           />
+          <Route path="/*" element={<ErrorHandler />} />
         </Routes>
       </main>
     </div>

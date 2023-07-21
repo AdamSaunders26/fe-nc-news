@@ -11,17 +11,14 @@ export function DownvoteButton({ handleVotes, hasClicked }) {
       onClick={() => {
         switch (true) {
           case hasClicked[0]:
-            console.log("op1");
             handleVotes(-2);
             break;
           case !hasClicked[0]:
-            console.log("op2");
             handleVotes(-1);
             break;
           case hasClicked[0] && hasClicked[1] < 0:
-            console.log("op3");
             handleVotes(0);
-            
+
             break;
         }
       }}
