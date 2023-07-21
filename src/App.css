@@ -534,10 +534,23 @@ main section {
     font-size: 0.8em;
   }
   .article-card-middle {
-    flex: 1 1 11em;
+    flex: 1 1 15em;
+    display: flex;
+    flex-direction: column;
+    
+  }
+  .article-card img {
+    /* border: 3px solid green; */
+    height: auto;
+    width: auto;
+    
+  }
+  .article-card h3 {
+    align-self: center;
   }
   .article-card div {
     width: 100%;
+    justify-content: center;
   }
   .article-card div:first-of-type{
     font-size: .8em;
