@@ -23,7 +23,7 @@ export default function ArticleDetails({ article }) {
   function handleVotes(inc_vote) {
     setHasClicked(() => {
       const newHasClicked = [...hasClicked];
-      newHasClicked[0] = true;
+      inc_vote === 0 ? (newHasClicked[0] = false) : (newHasClicked[0] = true);
       newHasClicked[1] = inc_vote;
       return newHasClicked;
     });

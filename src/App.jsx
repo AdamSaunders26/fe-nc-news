@@ -5,7 +5,7 @@ import Navbar from "./components/Navbar";
 import Header from "./components/Header";
 import { Routes, Route } from "react-router-dom";
 import ArticlesList from "./components/ArticlesList";
-import { getArticles, getTopics } from "./utils/axiosFunctions";
+import { getTopics } from "./utils/axiosFunctions";
 import SingleArticle from "./components/SingleArticle";
 import FilterBar from "./components/FilterBar";
 

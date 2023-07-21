@@ -9,10 +9,24 @@ export function DownvoteButton({ handleVotes, hasClicked }) {
   return (
     <button
       onClick={() => {
-        handleVotes(-1);
+        switch (true) {
+          case hasClicked[0]:
+            console.log("op1");
+            handleVotes(-2);
+            break;
+          case !hasClicked[0]:
+            console.log("op2");
+            handleVotes(-1);
+            break;
+          case hasClicked[0] && hasClicked[1] < 0:
+            console.log("op3");
+            handleVotes(0);
+            
+            break;
+        }
       }}
-      disabled={hasClicked[0]}
-      className={hasClicked[1] === -1 ? "downvote-clicked" : "downvote"}
+      disabled={hasClicked[0] && hasClicked[1] < 0}
+      className={hasClicked[1] < 0 ? "downvote-clicked" : "downvote"}
     >
       <BiDownvote />
     </button>
@@ -23,10 +37,10 @@ export function UpvoteButton({ handleVotes, hasClicked }) {
   return (
     <button
       onClick={() => {
-        handleVotes(1);
+        hasClicked[0] ? handleVotes(2) : handleVotes(1);
       }}
-      disabled={hasClicked[0]}
-      className={hasClicked[1] === 1 ? "upvote-clicked" : "upvote"}
+      disabled={hasClicked[0] && hasClicked[1] > 0}
+      className={hasClicked[1] > 0 ? "upvote-clicked" : "upvote"}
     >
       <BiUpvote />
     </button>
