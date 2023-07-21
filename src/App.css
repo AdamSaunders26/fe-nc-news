@@ -347,7 +347,7 @@ main section {
   box-shadow: inset 2px 2px 10px;
 }
 .modify-comment button {
-    background: var(--primary-background);
+  background: var(--primary-background);
 }
 .modify-comment button:hover {
   cursor: pointer;
@@ -355,6 +355,9 @@ main section {
 }
 .modify-comment button:active {
   box-shadow: inset 2px 2px 10px;
+}
+.modify-comment button:disabled {
+  background: rgb(213, 212, 212);
 }
 .modify-comment {
   display: flex;
