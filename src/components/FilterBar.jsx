@@ -7,12 +7,10 @@ import { getArticles } from "../utils/axiosFunctions";
 export default function FilterBar({ allTopics, setAllArticles, setLoading }) {
   const navigate = useNavigate();
   const [searchParams, setSearchParams] = useSearchParams();
-  const { topic = "all" } = useParams();
+  const { topic } = useParams("all");
   const [currentTopic, setCurrentTopic] = useState(topic);
-  const [sortby = "created_at", setSortby] = useState(
-    searchParams.get("sortby")
-  );
-  const [order = "desc", setOrder] = useState(searchParams.get("order"));
+  const [sortby, setSortby] = useState(searchParams.get("sortby"));
+  const [order, setOrder] = useState(searchParams.get("order"));
 
   useEffect(() => {
     setLoading(true);
@@ -56,7 +54,6 @@ export default function FilterBar({ allTopics, setAllArticles, setLoading }) {
         </label>
         <select
           onChange={(e) => {
-            console.log(e.target.value);
             setSortby(e.target.value);
           }}
           id="sortby"

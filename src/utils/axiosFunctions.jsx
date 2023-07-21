@@ -9,14 +9,10 @@ export function getArticles([
   sortby = "created_at",
   order = "desc",
 ]) {
-  let APIstring =
-    topic === "all"
-      ? `/articles?sortby=${sortby}&order=${order}`
-      : `/articles?topic=${topic}&sortby=${sortby}&order=${order}`;
+  const params = topic === "all" ? { sortby, order } : { topic, sortby, order };
 
-  console.log(APIstring);
   return backendAPI
-    .get(APIstring)
+    .get("/articles", params)
     .then(({ data }) => {
       return data.articles;
     })
