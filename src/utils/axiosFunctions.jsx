@@ -12,7 +12,7 @@ export function getArticles([
   const params = topic === "all" ? { sortby, order } : { topic, sortby, order };
 
   return backendAPI
-    .get("/articles", params)
+    .get("/articles", { params })
     .then(({ data }) => {
       return data.articles;
     })
@@ -62,5 +62,17 @@ export function postComment(article_id, comment) {
     .post(`/articles/${article_id}/comments`, comment)
     .then(({ data }) => {
       return data.postedComment;
+    });
+}
+
+export function deleteComment(comment_id, setIsError) {
+  return backendAPI
+    .delete(`/comments/${comment_id}`)
+    .then(() => {
+      return comment_id;
+    })
+    .catch((err) => {
+      console.log(err);
+      setIsError(true);
     });
 }
