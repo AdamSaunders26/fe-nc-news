@@ -370,7 +370,10 @@ main section {
   display: flex;
   justify-content: center;
 }
+.filter-bar > section {
 
+  transform: translateY(-17%);
+}
 .filter-bar label {
   padding: 0em 0.5em;
 }
