@@ -11,10 +11,15 @@ export default function ModifyComment({ comment_id, setDeletedComment }) {
       <button
         onClick={() => {
           setDeleteLoading(true);
-          deleteComment(comment_id, setIsError).then((deletedComment_id) => {
-            setDeleteLoading(false);
-            setDeletedComment(deletedComment_id);
-          });
+          deleteComment(comment_id)
+            .then((deletedComment_id) => {
+              setDeleteLoading(false);
+              setDeletedComment(deletedComment_id);
+            })
+            .catch((err) => {
+              console.log(err);
+              setIsError(true);
+            });
         }}
         disabled={deleteLoading}
       >

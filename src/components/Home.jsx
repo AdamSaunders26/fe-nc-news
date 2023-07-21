@@ -1,6 +1,6 @@
 export default function Home() {
   return (
-    <section>
+    <section className="home">
       <h2>Welcome to the NC News homepage!</h2>
       <p>
         Please enjoy reading through the different articles and don't be afraid

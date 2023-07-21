@@ -4,7 +4,12 @@ import { useNavigate } from "react-router-dom";
 import { useParams, useSearchParams } from "react-router-dom";
 import { getArticles } from "../utils/axiosFunctions";
 
-export default function FilterBar({ allTopics, setAllArticles, setLoading }) {
+export default function FilterBar({
+  allTopics,
+  setAllArticles,
+  setLoading,
+  setIsError,
+}) {
   const navigate = useNavigate();
   const [searchParams, setSearchParams] = useSearchParams();
   const { topic } = useParams("all");
@@ -14,10 +19,20 @@ export default function FilterBar({ allTopics, setAllArticles, setLoading }) {
 
   useEffect(() => {
     setLoading(true);
-    getArticles([currentTopic, sortby, order]).then((newArticles) => {
-      setAllArticles(newArticles);
-      setLoading(false);
-    });
+    getArticles([currentTopic, sortby, order])
+      .then((newArticles) => {
+        setAllArticles(newArticles);
+        setLoading(false);
+      })
+      .catch((err) => {
+        console.log(err);
+        setIsError((isError) => {
+          const newError = [...isError];
+          newError[0] = true;
+          newError[1] = err.response;
+          return newError;
+        });
+      });
     navigate(
       `/articles/topics/${currentTopic}?sortby=${sortby}&order=${order}`
     );
