@@ -13,7 +13,7 @@ export default function SingleArticle({ username }) {
   const [currentArticle, setCurrentArticle] = useState({});
   const [currrentComments, setCurrentComments] = useState([]);
   const [loading, setLoading] = useState([true, true]);
-  const [isError, setIsError] = useState([false, null, false, null]);
+  const [isError, setIsError] = useState(null);
 
   useEffect(() => {
     getSingleArticle(article_id)
@@ -26,12 +26,7 @@ export default function SingleArticle({ username }) {
         });
       })
       .catch((err) => {
-        setIsError((isError) => {
-          const newError = [...isError];
-          newError[0] = true;
-          newError[1] = err.response;
-          return newError;
-        });
+        setIsError(err.response);
       });
 
     getComments(article_id)
@@ -44,22 +39,13 @@ export default function SingleArticle({ username }) {
         });
       })
       .catch((err) => {
-        console.log(err);
-        setIsError((isError) => {
-          const newError = [...isError];
-          newError[0] = true;
-          newError[1] = err.response;
-          return newError;
-        });
+        setIsError(err.response);
       });
   }, []);
 
-  if (isError[0]) {
+  if (isError) {
     return (
-      <ErrorHandler
-        status={isError[1].status}
-        message={isError[1].data.message}
-      />
+      <ErrorHandler status={isError.status} message={isError.data.message} />
     );
   } else {
     return (

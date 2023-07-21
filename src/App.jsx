@@ -15,7 +15,7 @@ function App() {
   const [loading, setLoading] = useState(true);
   const [usernameLoggedIn, setUsernameLoggedIn] = useState("happyamy2016");
   const [allTopics, setAllTopics] = useState([]);
-  const [isError, setIsError] = useState([false, null]);
+  const [isError, setIsError] = useState(null);
 
   useEffect(() => {
     getTopics().then((topics) => {

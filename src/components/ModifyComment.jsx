@@ -17,7 +17,6 @@ export default function ModifyComment({ comment_id, setDeletedComment }) {
               setDeletedComment(deletedComment_id);
             })
             .catch((err) => {
-              console.log(err);
               setIsError(true);
             });
         }}

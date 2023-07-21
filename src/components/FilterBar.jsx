@@ -12,31 +12,21 @@ export default function FilterBar({
 }) {
   const navigate = useNavigate();
   const [searchParams, setSearchParams] = useSearchParams();
-  const { topic } = useParams("all");
-  const [currentTopic, setCurrentTopic] = useState(topic);
+  const [topic, setTopic] = useState("all");
   const [sortby, setSortby] = useState(searchParams.get("sortby"));
   const [order, setOrder] = useState(searchParams.get("order"));
 
   useEffect(() => {
     setLoading(true);
-    getArticles([currentTopic, sortby, order])
+    getArticles([topic, sortby, order])
       .then((newArticles) => {
         setAllArticles(newArticles);
         setLoading(false);
       })
       .catch((err) => {
-        console.log(err);
-        setIsError((isError) => {
-          const newError = [...isError];
-          newError[0] = true;
-          newError[1] = err.response;
-          return newError;
-        });
+        setIsError(err.response);
       });
-    navigate(
-      `/articles/topics/${currentTopic}?sortby=${sortby}&order=${order}`
-    );
-  }, [currentTopic, sortby, order]);
+  }, [topic, sortby, order]);
 
   return (
     <section className="filter-bar">
@@ -47,16 +37,15 @@ export default function FilterBar({
         <select
           id="topic"
           onChange={(e) => {
-            setCurrentTopic(e.target.value);
+            setTopic(e.target.value);
+            navigate(
+              `/articles/topics/${e.target.value}?sortby=${sortby}&order=${order}`
+            );
           }}
         >
           {allTopics.map((topic) => {
             return (
-              <option
-                key={topic}
-                value={topic}
-                selected={topic == currentTopic}
-              >
+              <option key={topic} value={topic}>
                 {capitaliseString(topic)}
               </option>
             );
@@ -70,6 +59,9 @@ export default function FilterBar({
         <select
           onChange={(e) => {
             setSortby(e.target.value);
+            navigate(
+              `/articles/topics/${topic}?sortby=${e.target.value}&order=${order}`
+            );
           }}
           id="sortby"
         >
@@ -85,8 +77,11 @@ export default function FilterBar({
           <h2>Order: </h2>
         </label>
         <button
-          onClick={() => {
+          onClick={(e) => {
             order === "desc" ? setOrder("asc") : setOrder("desc");
+            navigate(
+              `/articles/topics/${topic}?sortby=${sortby}&order=${e.target.value}`
+            );
           }}
           id="order"
           value={order}

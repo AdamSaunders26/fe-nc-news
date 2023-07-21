@@ -4,11 +4,11 @@ import { ArticleOverviewSkeleton } from "../utils/loadingSkeletons";
 import ErrorHandler from "./ErrorHandler";
 
 export default function ArticlesList({ loading, allArticles, isError }) {
-  if (isError[0]) {
+  if (isError) {
     return (
       <ErrorHandler
-        status={isError[1].status}
-        message={isError[1].data.message}
+        status={isError.status}
+        message={isError.data.message}
       />
     );
   } else {
