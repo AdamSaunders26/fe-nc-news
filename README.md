@@ -3,9 +3,10 @@
  Hosted version of the website - https://adam-saunders-front-end-project.netlify.app/
 
 Backend API repository - https://github.com/AdamSaunders26/nc-news-backendProject
-## **Project Summary**
 
 Hosted version of Backend API - https://nc-news-app.onrender.com/api
+
+## **Project Summary**
 
 This website interacts with a backend API I previously made. It allows users to view a range of articles which can be filtered as desired. CRUD operations can also be completed. It has different views depending on screen size and includes error handling. It was built primary using React, Javascript and Axios.
 
