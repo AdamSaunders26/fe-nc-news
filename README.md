@@ -5,9 +5,11 @@
 Backend API repository - https://github.com/AdamSaunders26/nc-news-backendProject
 ## **Project Summary**
 
-This website interacts with a backend API I previously made. It allows users to view a range of articles which can be filtered as desired. CRUD operations can be completed. It has different views depending on screen size and included error handling. It was built primary using React, Javascript and Axios.
+Hosted version of Backend API - https://nc-news-app.onrender.com/api
 
-Please note that some features have not currently been implemented, such as accessing the list of users or posting articles.
+This website interacts with a backend API I previously made. It allows users to view a range of articles which can be filtered as desired. CRUD operations can also be completed. It has different views depending on screen size and includes error handling. It was built primary using React, Javascript and Axios.
+
+Please note that some features have not been implemented yet, such as accessing the list of users or posting articles.
 
 ## **Cloning**
 
