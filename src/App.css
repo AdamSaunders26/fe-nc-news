@@ -477,6 +477,24 @@ main section {
   padding: 4em;
   height: 100vh;
 }
+.user-card {
+  /* border: 2px solid gold; */
+  border-radius: 1em;
+  background: var(--primary-background);
+  margin-block: 1em;
+  height: 6em;
+  display: flex;
+  justify-content: space-between;
+  padding: 1em 1.5em;
+}
+.user-card img {
+  /* border: 2px solid gold; */
+  height: 4em;
+}
+.user-card h2 {
+  align-self: center;
+  font-size: 2em;
+}
 @media only screen and (max-width: 400px) {
   .app {
     font-size: 0.8em;
@@ -537,13 +555,11 @@ main section {
     flex: 1 1 15em;
     display: flex;
     flex-direction: column;
-    
   }
   .article-card img {
     /* border: 3px solid green; */
     height: auto;
     width: auto;
-    
   }
   .article-card h3 {
     align-self: center;
@@ -552,8 +568,8 @@ main section {
     width: 100%;
     justify-content: center;
   }
-  .article-card div:first-of-type{
-    font-size: .8em;
+  .article-card div:first-of-type {
+    font-size: 0.8em;
   }
   .single-article-page {
     display: flex;
@@ -589,5 +605,23 @@ main section {
   }
   .comment-list a {
     display: none;
+  }
+  .user-list {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    /* margin-inline: 2em; */
+    margin-block: 0em;
+    gap: 1em;
+    justify-content: center;
+    align-content: flex-start;
+    height: 100vh
+  }
+  .user-card {
+    margin: 0;
+    flex: 1 1 10em;
+    min-width: 22em;
+    max-width: 22em;
+    /* align-self: center; */
   }
 }

@@ -5,9 +5,9 @@ export default function Navbar() {
       <Link to={`/articles/topics/all?sortby=created_at&order=desc`}>
         <h2>Articles</h2>
       </Link>
-      <a>
+      <Link to={`/users`}>
         <h2>Users</h2>
-      </a>
+      </Link>
       <a>
         <h2>Profile</h2>
       </a>
