@@ -51,8 +51,7 @@ export function postComment(article_id, comment) {
 }
 
 export function deleteComment(comment_id) {
-  console.log(comment_id);
-  return backendAPI.delete(`/comments/${comment_id}`).then(() => {
+    return backendAPI.delete(`/comments/${comment_id}`).then(() => {
     return comment_id;
   });
 }
