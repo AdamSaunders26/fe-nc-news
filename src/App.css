@@ -292,6 +292,30 @@ main section {
 .comment-card > p {
   font-weight: bolder;
 }
+.comment-user {
+  display: flex;
+  border-top: 5px solid var(--secondary-background);
+  padding-block: 0.6em;
+}
+.modify-comment {
+  align-self: center;
+  padding: 0;
+}
+.comment-user p {
+  align-self: center;
+}
+.comment-user img {
+  height: 1.5em;
+  width: 1.5em;
+  align-self: center;
+  border-radius: 100vw;
+  /* margin: .5em; */
+  /* border: 3px solid gold; */
+  padding: 0.5em;
+  background: white;
+  box-sizing: content-box;
+  object-fit: contain;
+}
 
 .comment-list a {
   align-self: center;
@@ -382,6 +406,9 @@ main section {
   color: var(--secondary-accent);
   background: var(--primary-accent);
   border: 0px solid var(--secondary-accent);
+}
+.modify-comment button {
+  margin: 0;
 }
 .new-comment button:hover {
   cursor: pointer;
@@ -477,6 +504,25 @@ main section {
   padding: 4em;
   height: 100vh;
 }
+.user-card {
+  /* border: 2px solid gold; */
+  border-radius: 1em;
+  background: var(--primary-background);
+  margin-block: 1em;
+  height: 6em;
+  display: flex;
+  justify-content: space-between;
+  padding: 1em 1.5em;
+}
+.user-card img {
+  /* border: 2px solid gold; */
+  height: 4em;
+}
+.user-card h2 {
+  padding: 0 0.5em 0em 0em;
+  align-self: center;
+  font-size: 2em;
+}
 @media only screen and (max-width: 400px) {
   .app {
     font-size: 0.8em;
@@ -537,13 +583,11 @@ main section {
     flex: 1 1 15em;
     display: flex;
     flex-direction: column;
-    
   }
   .article-card img {
     /* border: 3px solid green; */
     height: auto;
     width: auto;
-    
   }
   .article-card h3 {
     align-self: center;
@@ -552,8 +596,8 @@ main section {
     width: 100%;
     justify-content: center;
   }
-  .article-card div:first-of-type{
-    font-size: .8em;
+  .article-card div:first-of-type {
+    font-size: 0.8em;
   }
   .single-article-page {
     display: flex;
@@ -583,11 +627,33 @@ main section {
     font-size: 0.8em;
     flex: 4 1 0;
   }
+ 
+  .comment-user {
+    border-top: 3px solid var(--secondary-background);
+    flex-wrap: wrap;
+  }
 
   .new-comment {
     flex: 1 1 0;
   }
   .comment-list a {
     display: none;
+  }
+  .user-list {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    /* margin-inline: 2em; */
+    margin-block: 0em;
+    gap: 1em;
+    justify-content: center;
+    align-content: flex-start;
+    height: 100vh;
+  }
+  .user-card {
+    margin: 0;
+    flex: 1 1 0;
+    min-width: 23em;
+    max-width: 23em;
   }
 }

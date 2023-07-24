@@ -51,3 +51,12 @@ export function CommentSkeleton() {
     </div>
   );
 }
+
+export function UserSkeleton() {
+  return (
+    <section className="user-skeleton">
+      <Skeleton height={100} />
+      <Skeleton variant="rounded" height={100} />
+    </section>
+  );
+}
