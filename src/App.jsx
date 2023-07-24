@@ -46,7 +46,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route
             path="/articles/:article_id"
-            element={<SingleArticle username={usernameLoggedIn} />}
+            element={<SingleArticle username={usernameLoggedIn} allUsers={allUsers} />}
           />
           <Route
             path="/articles/topics/:topic"

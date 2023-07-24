@@ -292,6 +292,30 @@ main section {
 .comment-card > p {
   font-weight: bolder;
 }
+.comment-user {
+  display: flex;
+  border-top: 5px solid var(--secondary-background);
+  padding-block: 0.6em;
+}
+.modify-comment {
+  align-self: center;
+  padding: 0;
+}
+.comment-user p {
+  align-self: center;
+}
+.comment-user img {
+  height: 1.5em;
+  width: 1.5em;
+  align-self: center;
+  border-radius: 100vw;
+  /* margin: .5em; */
+  /* border: 3px solid gold; */
+  padding: 0.5em;
+  background: white;
+  box-sizing: content-box;
+  object-fit: contain;
+}
 
 .comment-list a {
   align-self: center;
@@ -382,6 +406,9 @@ main section {
   color: var(--secondary-accent);
   background: var(--primary-accent);
   border: 0px solid var(--secondary-accent);
+}
+.modify-comment button {
+  margin: 0;
 }
 .new-comment button:hover {
   cursor: pointer;
@@ -492,6 +519,7 @@ main section {
   height: 4em;
 }
 .user-card h2 {
+  padding: 0 0.5em 0em 0em;
   align-self: center;
   font-size: 2em;
 }
@@ -599,6 +627,11 @@ main section {
     font-size: 0.8em;
     flex: 4 1 0;
   }
+ 
+  .comment-user {
+    border-top: 3px solid var(--secondary-background);
+    flex-wrap: wrap;
+  }
 
   .new-comment {
     flex: 1 1 0;
@@ -615,13 +648,12 @@ main section {
     gap: 1em;
     justify-content: center;
     align-content: flex-start;
-    height: 100vh
+    height: 100vh;
   }
   .user-card {
     margin: 0;
-    flex: 1 1 10em;
-    min-width: 22em;
-    max-width: 22em;
-    /* align-self: center; */
+    flex: 1 1 0;
+    min-width: 23em;
+    max-width: 23em;
   }
 }

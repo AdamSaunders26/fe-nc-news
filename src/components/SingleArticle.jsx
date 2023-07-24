@@ -8,7 +8,7 @@ import { ArticleSkeleton, CommentSkeleton } from "../utils/loadingSkeletons";
 import NewComment from "./NewComment";
 import ErrorHandler from "./ErrorHandler";
 
-export default function SingleArticle({ username }) {
+export default function SingleArticle({ username, allUsers }) {
   const { article_id } = useParams();
   const [currentArticle, setCurrentArticle] = useState({});
   const [currrentComments, setCurrentComments] = useState([]);
@@ -64,7 +64,8 @@ export default function SingleArticle({ username }) {
             <CommentsList
               currentComments={currrentComments}
               setCurrentComments={setCurrentComments}
-              username={username}
+                username={username}
+                allUsers={allUsers}
             />
           )}
           <NewComment

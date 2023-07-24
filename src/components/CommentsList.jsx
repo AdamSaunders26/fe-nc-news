@@ -5,6 +5,7 @@ export default function CommentsList({
   currentComments,
   username,
   setCurrentComments,
+  allUsers
 }) {
   const [deletedComment, setDeletedComment] = useState(null);
   
@@ -33,6 +34,7 @@ export default function CommentsList({
               comment={comment}
               username={username}
               setDeletedComment={setDeletedComment}
+              allUsers={allUsers}
             />
           );
         })}
