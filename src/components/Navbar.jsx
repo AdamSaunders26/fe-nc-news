@@ -1,5 +1,7 @@
 import { Link } from "react-router-dom";
-export default function Navbar() {
+export default function Navbar({ currentUser }) {
+  const { avatar_url, username } = currentUser;
+
   return (
     <nav>
       <Link to={`/articles/topics/all?sortby=created_at&order=desc`}>
@@ -10,6 +12,7 @@ export default function Navbar() {
       </Link>
       <a>
         <h2>Profile</h2>
+        <img src={avatar_url} />
       </a>
     </nav>
   );
