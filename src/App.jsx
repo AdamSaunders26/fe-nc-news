@@ -16,6 +16,12 @@ function App() {
   const [loading, setLoading] = useState(true);
   const [userLoading, setUserLoading] = useState(true);
   const [allUsers, setAllUsers] = useState([]);
+  const [currentUser, setCurrentUser] = useState({
+    username: "happyamy2016",
+    name: "Amy Happy",
+    avatar_url:
+      "https://vignette1.wikia.nocookie.net/mrmen/images/7/7f/Mr_Happy.jpg/revision/latest?cb=20140102171729",
+  });
   const [usernameLoggedIn, setUsernameLoggedIn] = useState("happyamy2016");
   const [allTopics, setAllTopics] = useState([]);
   const [isError, setIsError] = useState(null);
@@ -39,14 +45,19 @@ function App() {
     <div className="app">
       <section className="header-nav">
         <Header />
-        <Navbar />
+        <Navbar currentUser={currentUser} />
       </section>
       <main>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route
             path="/articles/:article_id"
-            element={<SingleArticle username={usernameLoggedIn} allUsers={allUsers} />}
+            element={
+              <SingleArticle
+                username={currentUser.username}
+                allUsers={allUsers}
+              />
+            }
           />
           <Route
             path="/articles/topics/:topic"
